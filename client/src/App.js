@@ -3,6 +3,7 @@ import './App.css';
 import Home from './components/Home';
 import CardList from './components/CardList';
 import { BrowserRouter as Router, Route, Link, Switch, Redirect } from 'react-router-dom';
+import AddEvent from './components/AddEvent';
 
 const isLoggedIn = localStorage.getItem("bitmoji") !== null && localStorage.getItem("name") !== null;
 class App extends Component {
@@ -19,6 +20,7 @@ class App extends Component {
           <Switch>
             <Route exact path="/" component={Home} />
             <Route exact path="/app" component={CardList} />
+            <Route path="/app/add" component={AddEvent} />
           </Switch>
         </div>
       </Router>

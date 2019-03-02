@@ -102,6 +102,7 @@
     border-radius: 50%;
     position: relative;
     top: 10px;
+    margin-right: 5px;
   }
   
   .post-module .post-content .post-meta a {
