@@ -5,18 +5,18 @@ function Card(props) {
     const getAgo = milliseconds => {
         let unit = "";
         let time = 0;
-        let seconds = (new Date().getTime() - seconds) / 1000;
+        let seconds = (new Date().getTime() - milliseconds) / 1000;
         if(seconds < 60 ) {
             unit = "s";
             time = seconds
         } else if (seconds > 60 && seconds < 3600){
-            unit = " mins";
+            unit = " min(s)";
             time = seconds / 60;
         } else {
-            unit = " hrs";
+            unit = " hr(s)";
             time = seconds / 3600;
         }
-        return time + unit;
+        return Math.floor(time) + unit;
     }
   return (
     <div className="container">
@@ -40,7 +40,7 @@ function Card(props) {
                 {props.obj.user}
               </span>
               <span className="timestamp">
-                <i className="fa fa-clock-o" /> {getAgo} ago
+                <i className="fa fa-clock-o" /> {getAgo(props.obj.timestamp)} ago
               </span>
             </div>
           </div>
