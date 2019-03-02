@@ -1,26 +1,27 @@
 import React, { Component } from 'react';
 import './App.css';
-import SnapLogIn from './components/snapLogIn';
+import Home from './components/Home';
+import CardList from './components/CardList';
+import { BrowserRouter as Router, Route, Link, Switch, Redirect } from 'react-router-dom';
 
+const isLoggedIn = localStorage.getItem("bitmoji") !== null && localStorage.getItem("name") !== null;
 class App extends Component {
-  constructor(props){
+  constructor(props) {
     super(props);
-    this.state = {
-      bitmoji: "",
-      displayName: ""
+    if(isLoggedIn && window.location.pathname === '/') {
+      window.location.reload();
     }
-    this.handleLogin = this.handleLogin.bind(this);
-  }
-
-  handleLogin(bitmoji, displayName){
-    this.setState({bitmoji: bitmoji});
-    this.setState({displayName: displayName});
   }
   render() {
     return (
-      <div className="App">
-        <SnapLogIn handleLogin={this.handleLogin}></SnapLogIn>
-      </div>
+      <Router>
+        <div className="App">
+          <Switch>
+            <Route exact path="/" component={Home} />
+            <Route exact path="/app" component={CardList} />
+          </Switch>
+        </div>
+      </Router>
     );
   }
 }

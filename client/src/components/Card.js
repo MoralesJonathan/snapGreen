@@ -1,5 +1,5 @@
 import React from "react";
-import "./Card.css";
+import "./card.css";
 function Card(props) {
   return (
     <div className="container">
@@ -7,23 +7,23 @@ function Card(props) {
         <div className="post-module">
           <div className="thumbnail">
             <div className="date">
-              <div className="day">{props.day}</div>
-              <div className="month">{props.month}</div>
+              <div className="day">{props.obj.eventDay}</div>
+              <div className="month">{props.obj.eventMonth}</div>
             </div>
-            <img src={props.eventImg} />
+            <img src={props.obj.cardImage} />
           </div>
           <div className="post-content">
-            <div className="category">{props.category}</div>
-            <h1 className="title">{props.title}</h1>
-            <h2 className="sub_title">{props.subtitle}</h2>
-            <p className="description">{props.description}</p>
+            <div className="category">{props.obj.category}</div>
+            <h1 className="title">{props.obj.title}</h1>
+            <h2 className="sub_title">{props.obj.subtitle}</h2>
+            <p className="description">{props.obj.description}</p>
             <div className="post-meta">
               <span className="user">
-                <img className="avatar" src={props.avatarImg} />
-                {props.fullName}
+                <img className="avatar" src={props.obj.avatar} />
+                {props.obj.user}
               </span>
               <span className="timestamp">
-                <i className="fa fa-clock-o" /> {props.timeAgo}
+                <i className="fa fa-clock-o" /> {props.obj.timeAgo}
                 {props.uniOfTimeAgo} ago
               </span>
             </div>
