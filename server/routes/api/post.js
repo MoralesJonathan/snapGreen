@@ -11,14 +11,14 @@ router.get("/", (req, res) => {
 });
 
 router.put("/", (req, res) => {
-    posts.createPost((status, data = "ok") => res.status(status).send(data));
+    posts.createPost(req.body, (status, data = "ok") => res.status(status).send(data));
 });
 
 router.post("/", (req, res) => {
-    posts.updatePost((status, data = "ok") => res.status(status).send(data));
+    posts.updatePost(req.body, (status, data = "ok") => res.status(status).send(data));
 });
 
-router.delete("/", (req, res) => {
-    posts.deletePost((status, data = "ok") => res.status(status).send(data));
+router.delete("/:id", (req, res) => {
+    posts.deletePost(req.params.id, (status, data = "ok") => res.status(status).send(data));
 });
 module.exports = router;
