@@ -10,6 +10,10 @@ router.get("/", (req, res) => {
     posts.getAllPosts((status, data = "ok") => res.status(status).send(data));
 });
 
+router.get("/:id", (req, res) => {
+    posts.getPost(req.params.id, (status, data = "ok") => res.status(status).send(data));
+});
+
 router.put("/", (req, res) => {
     posts.createPost(req.body, (status, data = "ok") => res.status(status).send(data));
 });

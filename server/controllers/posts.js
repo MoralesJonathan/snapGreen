@@ -27,6 +27,17 @@ const mongodbConnection = require("../dbconfig/connection.js"),
                 }
             });
         },
+        getPost: (id,cb) => {
+            const collection = mongodbConnection.db().collection("posts");
+            collection.findOne({id:id}, (err, result) => {
+                if (!err) {
+                    cb(200, result)
+                }
+                else {
+                    cb(500, err);
+                }
+            });
+        },
         deletePost: (id, cb) => {
             const collection = mongodbConnection.db().collection("posts");
             collection.deleteOne({ postId: id }, function (err, result) {
