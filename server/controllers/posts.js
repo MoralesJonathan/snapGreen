@@ -1,12 +1,12 @@
 const mongodbConnection = require("../dbconfig/connection.js"),
-    users = {
+    posts = {
         test: cb => {
             mongodbConnection.db().stats(result => {
                 cb(200)
             })
         },
         createPost: (data, cb) => {
-            const collection = mongodbConnection.db().collection("users");
+            const collection = mongodbConnection.db().collection("posts");
             collection.insertOne(data, function (err, result) {
                 if (!err) {
                     cb(200, result )
@@ -17,7 +17,7 @@ const mongodbConnection = require("../dbconfig/connection.js"),
             });
         },
         getAllPosts: cb => {
-            const collection = mongodbConnection.db().collection("users");
+            const collection = mongodbConnection.db().collection("posts");
             collection.find({}).toArray((err, result) => {
                 if (!err) {
                     cb(200, result)
@@ -28,18 +28,18 @@ const mongodbConnection = require("../dbconfig/connection.js"),
             });
         },
         deletePost: (id, cb) => {
-            const collection = mongodbConnection.db().collection("users");
+            const collection = mongodbConnection.db().collection("posts");
             collection.deleteOne({ postId: id }, function (err, result) {
                 !err ? cb(200, result) : cb(500, err);
             });
         },
         updatePost: (data, cb) => {
             const { id, ...rest } = data
-            const collection = mongodbConnection.db().collection("users");
+            const collection = mongodbConnection.db().collection("posts");
             collection.updateOne({ postId: id }, { $set: rest }, function (err, result) {
                 !err ? cb(200, result) : cb(500, err);
             });
         }
     };
 
-module.exports = users;
+module.exports = posts;
