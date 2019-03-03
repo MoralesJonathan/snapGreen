@@ -4,6 +4,7 @@ import API from '../utils/API';
 import { Figure } from "react-bootstrap"
 
 function StoriesBar() {
+    const isBusiness = localStorage.getItem("user");
     const [stories, setStories] = useState([]);
     useEffect(() => {
         API.getAllStories().then(res => {
@@ -13,13 +14,14 @@ function StoriesBar() {
     return (
         <div id="storiesBar">
             <div className="barContainer" >
-            <Figure>
+            { isBusiness ? null : <Figure>
                         <Figure.Image
                             width={75}
                             height={75}
                             roundedCircle={true}
                             src={localStorage.getItem("bitmoji")} />
-            </Figure>
+            </Figure>}
+            
                 {stories.map((story, index) => (
                     <Figure key={index}>
                         <Figure.Image
