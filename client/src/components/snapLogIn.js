@@ -3,7 +3,7 @@ import { Redirect } from 'react-router-dom';
 
 function SnapLogIn() {
 
-    const [loggedIn, setLoggedIn] = useState(localStorage.getItem("bitmoji") !== null && localStorage.getItem("name") !== null);
+    const [loggedIn, setLoggedIn] = useState(localStorage.getItem("bitmoji") && localStorage.getItem("name"));
 
     useEffect(() => {
         if (!loggedIn) {

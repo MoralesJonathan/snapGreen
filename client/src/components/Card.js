@@ -33,7 +33,7 @@ function Card(props) {
             <div className="category">{props.obj.category}</div>
             <h1 className="title">{props.obj.title}</h1>
             <h2 className="sub_title">{props.obj.subtitle}</h2>
-            <p className="description">{props.obj.description}</p>
+            <p className="description">{props.obj.summary}</p>
             <div className="post-meta">
               <span className="user">
                 <img className="avatar" src={props.obj.avatar} />

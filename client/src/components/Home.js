@@ -22,6 +22,16 @@ const ParticleBackground = () => (
                     speed: 2,
                     random: true
                 },
+                opacity: {
+                    "value": 0.5211089197812949,
+                    "random": false,
+                    "anim": {
+                      "enable": true,
+                      "speed": 1,
+                      "opacity_min": 0.1,
+                      "sync": false
+                    }
+                  }
             }
         }}
         style={{
@@ -37,7 +47,7 @@ class Home extends Component {
     render() {
         return (
             <div>
-                <ParticleBackground />
+                <ParticleBackground/>
                 <header className="App-header">
                     <h1 className="App-title">Welcome to SnapGreen!</h1>
                     <div className="form" style={{ zIndex: '1' }}>

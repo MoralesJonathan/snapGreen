@@ -15,8 +15,21 @@
     margin: 10px auto;
     outline: none;
     width: 286px;
+    font-size: 0.90em;
+}
+
+.register-button:hover{
+    color: black;
+    text-decoration-line: none;
 }
 
 .App-title{
+    z-index: 1;
+    color: white;
     text-align: center;
+    margin-bottom: 20px;
 }
+
+.App canvas{
+    background-color: #8c97ff;
+}   

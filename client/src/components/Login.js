@@ -21,7 +21,7 @@ function Login(){
     function handleSubmit(evt){
         evt && evt.preventDefault && evt.preventDefault();
         API.login({username: email, password: password}).then(res =>{
-            console.log(res.data);
+            localStorage.setItem("user", JSON.stringify(res.data));
             setLoggedIn(true);
         }).catch(err => setShowAlert(true));
     }

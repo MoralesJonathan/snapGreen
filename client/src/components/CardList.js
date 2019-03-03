@@ -7,33 +7,33 @@ import { Navbar, Nav, NavDropdown } from 'react-bootstrap';
 import './CardList.css';
 
 function CardList() {
-    const [notLoggedIn, setLoggedIn] = useState(localStorage.getItem("bitmoji") == null && localStorage.getItem("name") == null);
+    const [loggedIn, setLoggedIn] = useState((localStorage.getItem("bitmoji") && localStorage.getItem("name")) || localStorage.getItem('user'));
     const [list, setList] = useState([]);
+    const isBusiness = localStorage.getItem("user");
     useEffect(() => {
-        if (!notLoggedIn) {
+        if (loggedIn) {
             API.getAllEvents().then(res => {
                 setList(res.data);
-                console.log(res.data);
             })
         }
     }, []);
 
     function handleLogOut(){
-        localStorage.removeItem("bitmoji");
-        localStorage.removeItem("name");
+        localStorage.clear();
         setLoggedIn(false);
     }
 
     return (
         <React.Fragment>
-            {notLoggedIn ? <Redirect to="/" /> : null}
+            {!loggedIn ? <Redirect to="/" /> : null}
             <Navbar collapseOnSelect expand="lg" bg="dark" variant="dark">
-                <Navbar.Brand href="#home">Snapgreen</Navbar.Brand>
+                <Navbar.Brand href="/">Snapgreen</Navbar.Brand>
                 <Navbar.Toggle aria-controls="responsive-navbar-nav" />
                 <Navbar.Collapse id="responsive-navbar-nav">
                     <Nav className="mr-auto">
                         <Nav.Link href="/app/">Home</Nav.Link>
-                        <Nav.Link href="/app/add">Create post</Nav.Link>
+                        <Nav.Link href="/app/add">Create Post</Nav.Link>
+                        {isBusiness ? <Nav.Link href="/app/addIncentive">Create Community Incentive</Nav.Link>: null}
                     </Nav>
                     <Nav>
                         <Nav.Link eventKey={1} onSelect={handleLogOut} href="/"> Logout
@@ -42,7 +42,7 @@ function CardList() {
                 </Navbar.Collapse>
             </Navbar>
             <StoriesBar />
-            {list.map((obj, index) => <Card obj={obj} key={index}></Card>)}
+            {list.slice(0).reverse().map((obj, index) => <Card obj={obj} key={index}></Card>)}
             <a href="/app/add" className="float"><i className="fa fa-plus my-float"></i></a>
         </React.Fragment>
     );
