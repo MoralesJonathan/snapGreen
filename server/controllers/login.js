@@ -7,7 +7,7 @@ const bcrypt = require('bcrypt'),
             username: username.toLowerCase().trim()
         }, function (error, user) {
             if (user !== null && bcrypt.compareSync(password, user.password)) {
-                cb(200, user.username);
+                cb(200, {user: user.username, type:"user.type"});
             }
             else {
                 cb(400, false)
