@@ -40,12 +40,13 @@ function AddEvent() {
     }
     function handleSubmit(evt) {
         evt.preventDefault();
+        const summary = details.length>57?details.substring(0,57)+"...":details
         API.createEvent({
             title: eventName,
             subtitle: subtitle,
             category: category,
             description: details,
-            summary: details.substring(0,50),
+            summary: summary,
             timestamp: new Date().getTime(),
             user: localStorage.getItem("name"),
             avatar: localStorage.getItem("bitmoji")||"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTf3q_cxvO5kob_M7-Byki4QXmUpCDn8QBY2229vc8qw_Xpra_r",
