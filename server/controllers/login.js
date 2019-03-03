@@ -9,7 +9,7 @@ const bcrypt = require('bcrypt'),
         }, function (error, user) {
             if (user !== null && bcrypt.compareSync(password, user.password)) {
                 userCollection.findOne({
-                    username: user.username
+                    userName: user.username
                 }, function (err, userInfo) {
                     if (userInfo !== null ) {
                         cb(200, {userInfo});
