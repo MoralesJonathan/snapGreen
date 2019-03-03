@@ -3,7 +3,10 @@
 body{
 	font-family:Verdana, Geneva, sans-serif;
 	font-size:18px;
-	background-color:#CCC;
+	background: -webkit-linear-gradient(to left, rgba(0,168,255,0.5), rgba(210, 109, 247, 0.5));
+	background: -o-linear-gradient(to left, rgba(0,168,255,0.5), rgba(210, 109, 247, 0.5));
+	background: -moz-linear-gradient(to left, rgba(0,168,255,0.5), rgba(210, 109, 247, 0.5));
+	background: linear-gradient(to left, rgba(0,168,255,0.5), rgba(210, 109, 247, 0.5));
 }
 
 .float{
@@ -12,7 +15,7 @@ body{
 	height:60px;
 	bottom:10px;
 	right:20px;
-	background-color:#0C9;
+	background-color:#bd59d4;;
 	color:#FFF;
 	border-radius:50px;
 	text-align:center;

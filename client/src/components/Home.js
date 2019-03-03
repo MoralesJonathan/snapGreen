@@ -7,7 +7,7 @@ const ParticleBackground = () => (
         params={{
             particles: {
                 color: {
-                    value: "#FF9900"
+                    value: "#bd59d4"
                 },
                 number: {
                     value: 100
