@@ -5,9 +5,9 @@ export default {
         return axios.get("/api/post");
     },
     createEvent(data){
-        return axios.put("/api/post")
+        return axios.put("/api/post", data)
     },
-    getAllStories(data){
+    getAllStories(){
         return axios.get("/api/story")
     }
 };

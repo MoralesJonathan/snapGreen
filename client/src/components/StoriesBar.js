@@ -13,6 +13,13 @@ function StoriesBar() {
     return (
         <div id="storiesBar">
             <div class="barContainer" >
+            <Figure>
+                        <Figure.Image
+                            width={75}
+                            height={75}
+                            roundedCircle={true}
+                            src={localStorage.getItem("bitmoji")} />
+            </Figure>
                 {stories.map(story => (
                     <Figure>
                         <Figure.Image
