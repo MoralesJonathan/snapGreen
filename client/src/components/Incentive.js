@@ -13,7 +13,7 @@ function Incentive(props) {
           <div className="post-content">
           <p>{props.obj.name}</p>
               <span className="timestamp">
-                 Sponsored
+                 Incentive
               </span>
             </div>
           </div>
