@@ -1,11 +1,14 @@
 import React, {useState} from 'react';
 import {Redirect} from 'react-router-dom';
 import './AddEvent.css'
+import API from '../utils/API';
+import {Alert} from "react-bootstrap"
 
 function Login(){
-    const [submitted, setSubmitted] = useState(false);
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
+    const [showAlert, setShowAlert] = useState(false);
+    const [loggedIn, setLoggedIn] = useState(false);
 
     function handleEmailChange(e){
         setEmail(e.currentTarget.value);
@@ -16,15 +19,20 @@ function Login(){
     }
 
     function handleSubmit(evt){
-        evt && evt.preventDefault && evt.preventDefault()
+        evt && evt.preventDefault && evt.preventDefault();
+        API.login({username: email, password: password}).then(res =>{
+            console.log(res.data);
+            setLoggedIn(true);
+        }).catch(err => setShowAlert(true));
     }
 
     return(
         <React.Fragment>
-        {submitted ? <Redirect to="/app" /> : null}
+        {showAlert ? <Alert style={{marginBottom: "0", borderRadius: "7px"}} variant={"danger"} dismissible="true">Incorrect Log In</Alert>: null}
+        {loggedIn ? <Redirect to="/app" /> : null}
         <div className="container-contact100">
             <div className="wrap-contact100">
-                <form className="contact100-form validate-form">
+                <form className="contact100-form validate-form" onSubmit={handleSubmit}>
                     <span className="contact100-form-title">Create New Business Account</span>
 
                     <div className="wrap-input100">
@@ -38,7 +46,7 @@ function Login(){
                     </div>
 
                     <div className="container-contact100-form-btn">
-                        <button className="contact100-form-btn" oncClick={handleSubmit}>Add Event</button>
+                        <button className="contact100-form-btn" type="submit">Add Event</button>
                     </div>
                 </form>
             </div>
