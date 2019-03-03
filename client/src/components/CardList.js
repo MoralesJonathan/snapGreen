@@ -5,6 +5,7 @@ import Card from './Card';
 import StoriesBar from './StoriesBar';
 import { Navbar, Nav, NavDropdown } from 'react-bootstrap';
 import './CardList.css';
+import Incentive from './Incentive';
 
 function CardList() {
     const [loggedIn, setLoggedIn] = useState((localStorage.getItem("bitmoji") && localStorage.getItem("name")) || localStorage.getItem('user'));
@@ -46,7 +47,7 @@ function CardList() {
                 </Navbar.Collapse>
             </Navbar>
             <StoriesBar />
-            {incentives.slice(0).reverse().map((obj, index) => <Card obj={obj} key={index}></Card>)}
+            {incentives.slice(0).reverse().map((obj, index) => <Incentive obj={obj} key={index}></Incentive>)}
             <a href="/app/add" className="float"><i className="fa fa-plus my-float"></i></a>
             {list.slice(0).reverse().map((obj, index) => <Card obj={obj} key={index}></Card>)}
             <a href="/app/add" className="float"><i className="fa fa-plus my-float"></i></a>
