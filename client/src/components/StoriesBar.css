@@ -1,15 +1,41 @@
 #storiesBar {
     background-color: white;
     height: 100px;
-    overflow: auto;
+    overflow: inherit;
   white-space: nowrap;
 }
 
 #storiesBar .barContainer{
-    padding: 5px 25px;
+    padding: 5px 25px 5px 0px;
     overflow: scroll;
 }
 
 .figure {
-    margin: .5rem 1.5rem 0.5rem;
+    margin: -1.3rem 1.5rem 0.5rem;
+    cursor: pointer;
+}
+
+.img-fluid {
+    height: 75px;
+}
+.barContainer .figure:first-of-type:after {
+        height: 75px;
+        display: inline-block;
+        position: relative;
+        width: 1px;
+        left: 25px;
+        top: 30px;
+        background: #808080;
+        content: '';
+}
+.barContainer .figure:first-of-type:before {
+    height: 10px;
+    display: inline-block;
+    position: relative;
+    width: 10px;
+    left: 60px;
+    top: 25px;
+    color: #bd59d4;
+    font-size: 28px;
+    content: '+';
 }
