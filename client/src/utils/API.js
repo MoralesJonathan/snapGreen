@@ -16,7 +16,7 @@ export default {
     createIncentive(data){
         return axios.put("/api/incentive", data)
     },
-    getAllIncentive(){
+    getAllIncentives(){
         return axios.get("/api/incentive")
     }
 };
