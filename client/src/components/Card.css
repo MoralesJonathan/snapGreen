@@ -74,6 +74,9 @@
     padding: 0 0 10px;
     color: #333333;
     font-size: 26px;
+    white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
     font-weight: 700;
   }
   .post-module .post-content .sub_title {
@@ -88,6 +91,7 @@
     font-size: 14px;
     line-height: 1.8em;
   }
+
   .post-module .post-content .post-meta {
     margin: 30px 0 0;
     color: #999999;
@@ -97,11 +101,14 @@
     padding-top: 17px;
     float: right;
   }
+  .post-module .post-content .post-meta .user {
+    position: relative;
+    top: 16px;
+  }
   .post-module .post-content .post-meta .user .avatar {
     max-height: 30px;
     border-radius: 50%;
     position: relative;
-    top: 10px;
     margin-right: 5px;
   }
   
