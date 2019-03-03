@@ -1,0 +1,50 @@
+import React, {useState} from 'react';
+import {Redirect} from 'react-router-dom';
+import './AddEvent.css'
+
+function Login(){
+    const [submitted, setSubmitted] = useState(false);
+    const [email, setEmail] = useState("");
+    const [password, setPassword] = useState("");
+
+    function handleEmailChange(e){
+        setEmail(e.currentTarget.value);
+    }
+
+    function handlePasswordChange(e){
+        setPassword(e.currentTarget.value);
+    }
+
+    function handleSubmit(evt){
+        evt && evt.preventDefault && evt.preventDefault()
+    }
+
+    return(
+        <React.Fragment>
+        {submitted ? <Redirect to="/app" /> : null}
+        <div className="container-contact100">
+            <div className="wrap-contact100">
+                <form className="contact100-form validate-form">
+                    <span className="contact100-form-title">Create New Business Account</span>
+
+                    <div className="wrap-input100">
+                        <input className="input100" type="text" name="email" value={email} onChange={handleEmailChange} placeholder="Account Email" />
+                        <span className="focus-input100"></span>
+                    </div>
+
+                    <div className="wrap-input100">
+                        <input className="input100" type="password" name="password" value={password} onChange={handlePasswordChange} placeholder="Password" />
+                        <span className="focus-input100"></span>
+                    </div>
+
+                    <div className="container-contact100-form-btn">
+                        <button className="contact100-form-btn" oncClick={handleSubmit}>Add Event</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </React.Fragment>
+    )
+}
+
+export default Login;

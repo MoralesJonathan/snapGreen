@@ -1,4 +1,7 @@
 .register-button{
+    padding: 20px 0;
+    text-align: center;
+    color: black;
     background-color: #bd59d4;
     background-image: url(http://cdn.onlinewebfonts.com/svg/img_115542.png);
     background-position: 20px 22px;
@@ -12,4 +15,8 @@
     margin: 10px auto;
     outline: none;
     width: 286px;
+}
+
+.App-title{
+    text-align: center;
 }
