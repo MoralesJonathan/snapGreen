@@ -1,0 +1,15 @@
+.register-button{
+    background-color: #bd59d4;
+    background-image: url(http://cdn.onlinewebfonts.com/svg/img_115542.png);
+    background-position: 20px 22px;
+    background-repeat: no-repeat;
+    background-size: 30px;
+    border-radius: 36px;
+    border-style: none;
+    display: block;
+    font-family: inherit;
+    height: 72px;
+    margin: 10px auto;
+    outline: none;
+    width: 286px;
+}

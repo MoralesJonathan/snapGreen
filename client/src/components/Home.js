@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import Particles from 'react-particles-js';
 import SnapLogIn from './snapLogIn';
+import './Home.css';
 
 const ParticleBackground = () => (
     <Particles
@@ -40,6 +41,7 @@ class Home extends Component {
                     <h1 className="App-title">Welcome to SnapGreen!</h1>
                     <div className="form" style={{ zIndex: '1' }}>
                         <SnapLogIn></SnapLogIn>
+                        <button className="register-button">Business Sign in</button>
                     </div>
                 </header>
             </div>

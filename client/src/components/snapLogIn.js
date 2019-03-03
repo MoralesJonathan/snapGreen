@@ -10,9 +10,10 @@ function SnapLogIn() {
             window.snapKitInit = function () {
                 var loginButtonIconId = 'my-login-button-target';
                 // Mount Login Button
+                origin = window.location.origin;
                 window.snap.loginkit.mountButton(loginButtonIconId, {
                     clientId: 'faaeb827-f8c7-40a7-9053-9b93f648435a',
-                    redirectURI: 'http://localhost:3000',
+                    redirectURI: `${origin}`,
                     scopeList: [
                         'user.display_name',
                         'user.bitmoji.avatar',
