@@ -14,6 +14,9 @@ export default {
         return axios.get("/api/story")
     },
     createIncentive(data){
-        return axios.post("/api/incentive", data)
+        return axios.put("/api/incentive", data)
+    },
+    getAllIncentive(data){
+        return axios.get("/api/incentive", data)
     }
 };
