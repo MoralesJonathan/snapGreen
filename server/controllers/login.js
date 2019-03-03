@@ -3,15 +3,21 @@ const bcrypt = require('bcrypt'),
     login = (data, cb) => {
         const { username, password } = data;
         const collection = mongodbConnection.db().collection("login");
+        const userCollection = mongodbConnection.db().collection("users");
         collection.findOne({
             username: username.toLowerCase().trim()
         }, function (error, user) {
             if (user !== null && bcrypt.compareSync(password, user.password)) {
-                cb(200, {user: user.username, type:"user.type"});
+                userCollection.findOne({
+                    username: user.username
+                }, function (err, userInfo) {
+                    if (userInfo !== null ) {
+                        cb(200, {userInfo});
+                    }
+                    else cb(400, false)
+                })
             }
-            else {
-                cb(400, false)
-            }
+            else cb(400, false)
         })
     };
 
