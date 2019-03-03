@@ -106,7 +106,7 @@ iframe {
 
 .contact100-form-title {
   display: block;
-  font-family: SourceSansPro-Bold;
+  /* font-family: SourceSansPro-Bold; */
   font-size: 30px;
   color: #333333;
   line-height: 1.2;
@@ -128,7 +128,7 @@ iframe {
 .input100 {
   display: block;
   width: 100%;
-  font-family: SourceSansPro-Bold;
+  /* font-family: SourceSansPro-Bold; */
   font-size: 16px;
   color: #4b2354;
   line-height: 1.2;
@@ -215,7 +215,7 @@ textarea.input100 {
   font-size: 14px;
   color: #fff;
   line-height: 1.2;
-  padding-top: 5px;
+  /* padding-top: 5px; */
 
   -webkit-transition: all 0.4s;
   -o-transition: all 0.4s;
@@ -288,7 +288,7 @@ textarea.input100 {
   padding: 0 45px 0 22px;
   pointer-events: none;
 
-  font-family: SourceSansPro-Bold;
+  /* font-family: SourceSansPro-Bold; */
   font-size: 16px;
   color: #fa4251;
   line-height: 1.2;
