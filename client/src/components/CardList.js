@@ -9,13 +9,17 @@ import './CardList.css';
 function CardList() {
     const [loggedIn, setLoggedIn] = useState((localStorage.getItem("bitmoji") && localStorage.getItem("name")) || localStorage.getItem('user'));
     const [list, setList] = useState([]);
+    const [incentives, setIncentives] = useState([]);
     const isBusiness = localStorage.getItem("user");
     useEffect(() => {
         if (loggedIn) {
+            API.getAllIncentives().then(res => {
+                setIncentives(res.data);
+            })
             API.getAllEvents().then(res => {
                 setList(res.data);
             })
-        }
+        }   
     }, []);
 
     function handleLogOut(){
@@ -42,6 +46,8 @@ function CardList() {
                 </Navbar.Collapse>
             </Navbar>
             <StoriesBar />
+            {incentives.slice(0).reverse().map((obj, index) => <Card obj={obj} key={index}></Card>)}
+            <a href="/app/add" className="float"><i className="fa fa-plus my-float"></i></a>
             {list.slice(0).reverse().map((obj, index) => <Card obj={obj} key={index}></Card>)}
             <a href="/app/add" className="float"><i className="fa fa-plus my-float"></i></a>
         </React.Fragment>
