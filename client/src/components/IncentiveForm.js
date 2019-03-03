@@ -5,15 +5,21 @@ import API from '../utils/API'
 
 function IncentiveForm(){
     const isBusiness = localStorage.getItem("user");
-    const [incetiveName, handleIncentiveNameChange] = useState("");
-    const [imageUrl, handleImageUrlChange] = useState("");
+    const [incentiveName, setIncentiveName] = useState("");
+    const [imageUrl, setImageUrl] = useState("");
 
     function handleSubmit(e){
         e.preventDefault();
-        API.createIncentive({name: incetiveName, image: imageUrl})
-
+        API.createIncentive({name: incentiveName, image: imageUrl})
     }
-    return(
+
+    function handleIncentiveNameChange(e){
+        setIncentiveName(e.currentTarget.value);
+    }
+
+    function handleImageUrlChange(e){
+        setImageUrl(e.currentTarget.value);
+    }    return(
         <React.Fragment>
         {!isBusiness ? <Redirect to="/app" /> : null}
         <div className="container-contact100">
@@ -22,7 +28,7 @@ function IncentiveForm(){
                     <span className="contact100-form-title">Create Community Incentive</span>
 
                     <div className="wrap-input100">
-                        <input className="input100" type="text" name="Incentive Name" value={incetiveName} onChange={handleIncentiveNameChange} placeholder="Incentive Name" />
+                        <input className="input100" type="text" name="Incentive Name" value={incentiveName} onChange={handleIncentiveNameChange} placeholder="Incentive Name" />
                         <span className="focus-input100"></span>
                     </div>
 

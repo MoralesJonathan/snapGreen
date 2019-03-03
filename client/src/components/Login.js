@@ -33,7 +33,7 @@ function Login(){
         <div className="container-contact100">
             <div className="wrap-contact100">
                 <form className="contact100-form validate-form" onSubmit={handleSubmit}>
-                    <span className="contact100-form-title">Create New Business Account</span>
+                    <span className="contact100-form-title">Business Log In</span>
 
                     <div className="wrap-input100">
                         <input className="input100" type="text" name="email" value={email} onChange={handleEmailChange} placeholder="Account Email" />
@@ -46,7 +46,7 @@ function Login(){
                     </div>
 
                     <div className="container-contact100-form-btn">
-                        <button className="contact100-form-btn" type="submit">Add Event</button>
+                        <button className="contact100-form-btn" type="submit">Log In</button>
                     </div>
                 </form>
             </div>
