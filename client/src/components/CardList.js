@@ -18,6 +18,12 @@ function CardList() {
         }
     }, []);
 
+    function handleLogOut(){
+        localStorage.removeItem("bitmoji");
+        localStorage.removeItem("name");
+        setLoggedIn(false);
+    }
+
     return (
         <React.Fragment>
             {notLoggedIn ? <Redirect to="/" /> : null}
@@ -30,7 +36,7 @@ function CardList() {
                         <Nav.Link href="/app/add">Create post</Nav.Link>
                     </Nav>
                     <Nav>
-                        <Nav.Link eventKey={1} href="/"> Logout
+                        <Nav.Link eventKey={1} onSelect={handleLogOut} href="/"> Logout
                         </Nav.Link>
                     </Nav>
                 </Navbar.Collapse>
