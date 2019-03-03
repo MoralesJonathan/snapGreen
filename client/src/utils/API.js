@@ -12,5 +12,8 @@ export default {
     },
     getAllStories(){
         return axios.get("/api/story")
+    },
+    createIncentive(data){
+        return axios.post("/api/incentive", data)
     }
 };

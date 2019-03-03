@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import {Redirect} from 'react-router-dom';
 import './AddEvent.css'
+import API from '../utils/API'
 
 function IncentiveForm(){
     const isBusiness = localStorage.getItem("user");
@@ -9,6 +10,8 @@ function IncentiveForm(){
 
     function handleSubmit(e){
         e.preventDefault();
+        API.createIncentive({name: incetiveName, image: imageUrl})
+
     }
     return(
         <React.Fragment>
