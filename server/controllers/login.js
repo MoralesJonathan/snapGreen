@@ -7,8 +7,7 @@ const bcrypt = require('bcrypt'),
             username: username.toLowerCase().trim()
         }, function (error, user) {
             if (user !== null && bcrypt.compareSync(password, user.password)) {
-                localStorage.setItem("name", user.username);
-                cb(200, true);
+                cb(200, user.username);
             }
             else {
                 cb(400, false)
